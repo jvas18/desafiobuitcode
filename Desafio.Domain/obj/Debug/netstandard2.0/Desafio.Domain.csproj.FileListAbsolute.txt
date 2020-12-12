@@ -1,0 +1,9 @@
+C:\Users\jvict\OneDrive\Área de Trabalho\desafio\Desafio.Domain\bin\Debug\netstandard2.0\Desafio.Domain.deps.json
+C:\Users\jvict\OneDrive\Área de Trabalho\desafio\Desafio.Domain\bin\Debug\netstandard2.0\Desafio.Domain.dll
+C:\Users\jvict\OneDrive\Área de Trabalho\desafio\Desafio.Domain\bin\Debug\netstandard2.0\Desafio.Domain.pdb
+C:\Users\jvict\OneDrive\Área de Trabalho\desafio\Desafio.Domain\obj\Debug\netstandard2.0\Desafio.Domain.csprojAssemblyReference.cache
+C:\Users\jvict\OneDrive\Área de Trabalho\desafio\Desafio.Domain\obj\Debug\netstandard2.0\Desafio.Domain.csproj.CoreCompileInputs.cache
+C:\Users\jvict\OneDrive\Área de Trabalho\desafio\Desafio.Domain\obj\Debug\netstandard2.0\Desafio.Domain.AssemblyInfoInputs.cache
+C:\Users\jvict\OneDrive\Área de Trabalho\desafio\Desafio.Domain\obj\Debug\netstandard2.0\Desafio.Domain.AssemblyInfo.cs
+C:\Users\jvict\OneDrive\Área de Trabalho\desafio\Desafio.Domain\obj\Debug\netstandard2.0\Desafio.Domain.dll
+C:\Users\jvict\OneDrive\Área de Trabalho\desafio\Desafio.Domain\obj\Debug\netstandard2.0\Desafio.Domain.pdb

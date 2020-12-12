@@ -1,0 +1,29 @@
+
+<div class="container">
+  <app-titulo [title]="title"></app-titulo>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Birth Date</th>
+      <th>Cpf</th>
+    </tr>
+  </thead>
+  <tbody *ngIf='filteredPatients && filteredPatients.length'>
+    <tr  *ngFor="let patient of filteredPatients">
+      <td>{{patient.name}}</td>
+      <td>{{patient.birthDate | date}}</td>
+      <td>{{patient.cpf}}</td>
+    </tr>
+  </tbody>
+  <tfoot colspan="4" class="text-center"  *ngIf='!filteredPatients.length'>
+    <h4>
+      No data has been found!
+    </h4>
+
+  </tfoot>
+</table>
+<div>
+
+</div>
+</div>

@@ -1,0 +1,64 @@
+<div class="container">
+  <app-titulo [title]="title"></app-titulo>
+<form class="form-inline"  >
+  <div class="form-group mb-2">
+    <a class="btn btn-outline-info" [routerLink]="['create']"><span class="fa fa-plus">Create New</span></a>
+  </div>
+</form>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Birth Date</th>
+      <th>Cpf</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody *ngIf='patients &&patients.length'>
+    <tr  *ngFor="let patient of patients">
+      <td>{{patient.name}}</td>
+      <td>{{patient.birthDate | date}}</td>
+      <td>{{patient.cpf}}</td>
+      <td>
+        <a [routerLink]="[patient.id, 'edit']" class="btn btn-success"><span class="fa fa-pencil-alt"></span></a>
+        <button class="btn btn-danger " (click)="excluirPatient(patient, confirm)"><span class="fa fa-trash"></span></button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot colspan="5" class="text-center"  *ngIf='!patients.length'>
+    <h4>
+      No data has been found!
+    </h4>
+
+  </tfoot>
+</table>
+<div>
+
+</div>
+</div>
+
+<div bsModal #confirm="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+	<div class="modal-dialog modal-sm">
+  		<div class="modal-content">
+    		<div class="modal-header">
+      			<h4 class="modal-title pull-left">
+        			Deleting Doctor...
+      			</h4>
+      			<button type="button" class="close pull-right" (click)="confirm.hide()" aria-label="Close">
+        			<span aria-hidden="true">&times;</span>
+      			</button>
+    		</div>
+    		<div class="modal-body">
+      			<p>{{bodyDeletarPatient}}</p>
+    		</div>    
+    		<div class="modal-footer btn-group d-flex">      
+      			<button type="button" class="btn btn-outline-primary" (click)="confirm.hide()">
+        			CANCEL
+      			</button>
+      			<button type="button" class="btn btn-outline-danger" (click)="confirmDelete(confirm)">
+          			DELETE
+        		</button>
+    		</div>
+  		</div>
+	</div>
+</div>

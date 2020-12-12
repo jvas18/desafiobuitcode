@@ -1,0 +1,63 @@
+<div class="container">
+  <app-titulo [title]="title"></app-titulo>
+  <form [formGroup]="registerForm">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+      <label>Name</label>
+      <input type="text" class="form-control"
+      [ngClass]="{'is-invalid':registerForm.get('name').errors
+                  && registerForm.get('name').touched}" formControlName = "name" placeholder="Name">
+
+      <div *ngIf="registerForm.get('name').hasError('required')" class="invalid-feedback">
+        The Name field is required!
+      </div>
+      <div *ngIf="registerForm.get('name').hasError('minlength')" class="invalid-feedback">
+        The Name has to have at least 4 characters!
+      </div>
+      <div *ngIf="registerForm.get('name').hasError('maxlength')" class="invalid-feedback">
+        The Name has to have maximum 10 characters!
+      </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label>CRM</label>
+        <input type="text" class="form-control" 
+        [ngClass]="{'is-invalid':registerForm.get('crm').errors
+                  && registerForm.get('crm').touched}"
+         formControlName= "crm" placeholder="0000">
+         
+        <div *ngIf="registerForm.get('crm').hasError('required')" class="invalid-feedback">
+          The CRM field is required!
+        </div>
+        <div *ngIf="registerForm.get('crm').hasError('minlength')" class="invalid-feedback">
+          The CRM has to have at least 4 characters!
+        </div>
+        <div *ngIf="registerForm.get('crm').hasError('maxlength')" class="invalid-feedback">
+          The CRM has to have maximum 10 characters!
+        </div>
+      </div>
+      <div class="form-group col-sm-2">
+        <label>CRM-UF</label>
+        <input type="text" [ngClass]="{'is-invalid':registerForm.get('crmUf').errors
+        && registerForm.get('crmUf').touched}"
+        class="form-control" formControlName = "crmUf" placeholder="MG">
+        <div *ngIf="registerForm.get('crmUf').hasError('required')" class="invalid-feedback">
+          The CRM field is required!
+        </div>
+        <div *ngIf="registerForm.get('crmUf').hasError('minlength')" class="invalid-feedback">
+          The CRM has to have 2 characters!
+        </div>
+        <div *ngIf="registerForm.get('crmUf').hasError('maxlength')" class="invalid-feedback">
+          The CRM has to have 2 characters!
+        </div>
+      </div>
+    </div>
+    
+    <button class="btn btn-primary" [disabled]="!registerForm.valid" (click)="salvarAlteracao()">
+      Save
+    </button>
+    
+  </form>
+</div>
+  

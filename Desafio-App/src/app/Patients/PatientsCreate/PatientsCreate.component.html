@@ -1,0 +1,74 @@
+<div class="container">
+  <app-titulo [title]="title"></app-titulo>
+  <form [formGroup]="registerForm">
+    <div class="form-row">
+      <div class="form-group col-md-8">
+      <label>Name</label>
+      <input type="text" class="form-control"
+      [ngClass]="{'is-invalid':registerForm.get('name').errors
+                  && registerForm.get('name').touched}" formControlName = "name" placeholder="Name">
+
+      <div *ngIf="registerForm.get('name').hasError('required')" class="invalid-feedback">
+        The Name field is required!
+      </div>
+      <div *ngIf="registerForm.get('name').hasError('minlength')" class="invalid-feedback">
+        The Name has to have at least 4 characters!
+      </div>
+      <div *ngIf="registerForm.get('name').hasError('maxlength')" class="invalid-feedback">
+        The Name has to have maximum 10 characters!
+      </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label>CPF</label>
+        <input type="text" class="form-control" 
+        [ngClass]="{'is-invalid':registerForm.get('cpf').errors
+                  && registerForm.get('cpf').touched}"
+         formControlName= "cpf" placeholder="0000">
+         
+        <div *ngIf="registerForm.get('cpf').getError('cpfInvalido')" class="invalid-feedback">
+          The CPF field is invalid!
+        </div>
+        <div *ngIf="registerForm.get('cpf').hasError('maxlength')" class="invalid-feedback">
+          The CPF has to have 11 characters!
+        </div>
+      </div>
+      <div class="form-group col-sm-2">
+        <label>BirthDate</label>
+        <input type="text"  [ngClass]="{'is-invalid':registerForm.get('birthDate').errors
+        && registerForm.get('birthDate').touched}"
+        class="form-control" formControlName = "birthDate" placeholder="dd/mm/aaaa" bsDatepicker
+        [bsConfig]="{ isAnimated: true, dateInutFormat:'DD/MM/YYYY' }">
+        <div *ngIf="registerForm.get('birthDate').hasError('required')" class="invalid-feedback">
+          The BirthDate field is required!
+        </div>
+      </div>
+      <div class="form-row">
+      <div class="form-group col-md-12">
+        <label >Doctor</label>  
+                <select  name="doctorId" 
+                class="form-control" 
+                        formControlName="doctorId"  
+                        [ngClass]="{'is-invalid':registerForm.get('doctorId').errors
+                        && registerForm.get('doctorId').touched}"
+                         [(ngModel)]="patient.doctorId"
+                         (change) = "getValue($event.target.value)"
+                      >  
+                    <option value="">Please select Value</option>  
+                    <option *ngFor="let doctor of doctors"  
+                            [value]="doctor.id">  
+                        {{doctor.name}}  
+                    </option>  
+                  </select> 
+      </div>
+      <input type="hidden">
+    </div>
+    </div>
+    
+    <button class="btn btn-primary" [disabled]="!registerForm.valid"  (click)="salvarAlteracao()">
+      Save
+    </button>
+    
+  </form>
+</div>
